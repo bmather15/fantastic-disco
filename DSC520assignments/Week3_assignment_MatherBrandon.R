@@ -2,7 +2,7 @@
 # Name: Mather, Brandon
 # Date: 2022-06-24
 
-#1:
+#1:The data types of this spreadsheet would be nominal and continuous data.
 
 #2:
 library(ggplot2)
@@ -34,7 +34,11 @@ qqplot.HSDegree
   #2: This is skewed negative
 
 #7:
-install.packages ("pastecs")
 library(pastecs)
 stat.desc(community_su)
+
+#8: The skew of the data is a negative leaning skew, the kurtosis of the data would be positive.
+# The z-score of the data is positive since the data is to the right of the mean. More samples 
+# may change the explanation because the histogram could become more of a normal distribution
+# instead of a negative leaning skew. 
        
