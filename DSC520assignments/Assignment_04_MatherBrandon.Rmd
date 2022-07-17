@@ -44,9 +44,6 @@ ny_df <- covid_df[ which( covid_df$state == "New York"), ]
 ```
 ## NY Times COVID-19 Data
 ```{r echo=FALSE}
-library(knitr)
-library(latexpdf)
-library(tinytex)
 ggplot(data=florida_df, aes(x=date, group=1)) +
   geom_line(aes(y = cases, colour = "Florida")) +
   geom_line(data=ny_df, aes(y = cases,colour="New York")) +
@@ -78,3 +75,7 @@ knitr::kable(characters_df,row.names = NA,caption ="One Ring to Rule Them All" )
 pandoc.table(characters_df,'One Ring to Rule Them All',col.names=c("Name","Race","In Fellowship? ","Is Ring Bearer?","Age"))
 ```
 # References
+```
+Field, A., J. Miles, and Z. Field. 2012. Discovering Statiscs Using R. Sage Publications. https://books.google.com/books?id=wd2K@zC3swIC.
+
+Lander, J. P. 2014. R for Everyone: Advanced Analytics and Graphics. Addison-Wesley Data and Analytics Series. Addison-Wesley. https://books.google.com/books?id=3eBVAgAAQBAJ
