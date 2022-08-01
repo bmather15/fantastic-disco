@@ -1,0 +1,48 @@
+---
+title: "Week 8 Final Project Step 1"
+author: "Brandon Mather"
+date: "July 29th 2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```
+* 
+The problem I want to try to solve is if an NFL team should be going for 4th down or not. This is a problem that a lot of football teams have, and coaches have relied heavily on their "gut feeling" on whether they should go for it. I believe that using data that is collected every year by the NFL, we can find out when the best situations are and help teams find better chances of winning.  There is a lot of pressure on Head Coaches to get these calls right, and a lot of money on the line for Owners, and these numbers could potentially save Head Coaches from making a mistake and getting fired. Data science has already made huge differences in the NFL and College football, and companies have already been made to help integrate it. I believe that there is even more potential data science could have.    
+
+*
+1) What yard line would be the ideal cut off for going for fourth down?
+2) Is it better to pass or run on 4th down? 
+3) On what yard line would it be best to pass or run?
+4) Should you stay under center or go shotgun?
+5) What is the average yards gained on 4th down conversions?
+
+*
+I plan to address the problem by finding the most ideal scenarios to try and convert a fourth down scenario. I believe by charting all of the above questions, a coach would be able to determine whether the chances of converting are worth it, and what the ideal play would be to convert the 4th down. 
+
+*
+[2021 play by play data](http://nflsavant.com/about.php)
+[2020 play by play data](http://nflsavant.com/about.php)
+[2019 play by play data](http://nflsavant.com/about.php)
+
+All of this data was taken from publicly-avialble NFL play-by-play data and is used specificly for NFL statistics. I'm going to use the 2019-2021 seasons stats to have the most recent data. If data was not available for a section it was left blank and on yes or no questions they utilize 0 or 1. All the data with words associated with the answer won't be needed and will be removed. There are over a million points of data in each of the excel sheets.
+
+*
+Packages needed:
+ggplot2
+dplyr
+purrr
+
+*
+Scatter plots and a Bar plot would be the most effective way to illustrate my findings. I feel these will be the easiest to read, and will be able to get the point across. 
+
+*
+I will probably need to do more research on how to clean my data in the most effective way. Right now there are a lot of data points to work with. There are also a lot of columns that I will need to get rid of. I want to make sure I'm using the data that will get my point across the best. I will also need to make sure that my plots and graphs make sense and are in the correct ranges.  
+
+
+```
+NFLsavant.com. NFLsavant.com: Advanced NFL Statistics. (n.d.). Retrieved July 29, 2022, from http://nflsavant.com/about.php 
