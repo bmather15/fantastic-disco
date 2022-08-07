@@ -1,0 +1,88 @@
+---
+title: "Week 9 Final Project Step 2"
+author: "Brandon Mather"
+date: "August 5th 2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```
+library(ggplot2)
+library(dplyr)
+library(purrr)
+
+data_2021 <- read.csv("Play by Play data.2021.csv")
+data_2020 <- read.csv("Play by Play data.2020.csv")
+data_2019 <- read.csv("Play by Play data.2019.csv")
+data_2021_df <- data.frame(data_2021)
+data_2020_df <- data.frame(data_2020)
+data_2019_df <- data.frame(data_2019)
+names(data_2021)
+names(data_2020)
+names(data_2019)
+#Downloaded csv files, put into data frames, printed names so I can clean my data with the correct names of columns. 
+
+d2021_df_rmrows <- data_2021_df[-c(1:2,11,13:19,25:39,40:45)]
+d2020_df_rmrows <- data_2020_df[-c(1:2,11,13:19,25:39,40:45)]
+d2019_df_rmrows <- data_2019_df[-c(1:2,11,13:19,25:39,40:45)]
+names(d2021_df_rmrows)
+names(d2020_df_rmrows)
+names(d2019_df_rmrows)
+#removed all columns that I didn't need for my questions I want to answer, printed names again so I had the updated columns names that I kept.
+
+d2021_df_rmrows <- d2021_df_rmrows[!d2021_df_rmrows$OffenseTeam=="",]
+d2021_df_rmrows <- d2021_df_rmrows[!d2021_df_rmrows$DefenseTeam=="",]
+d2021_df_rmrows <- d2021_df_rmrows[!d2021_df_rmrows$Formation=="",]
+d2021_df_rmrows <- d2021_df_rmrows[!d2021_df_rmrows$PlayType=="",]
+d2020_df_rmrows <- d2020_df_rmrows[!d2020_df_rmrows$OffenseTeam=="",]
+d2020_df_rmrows <- d2020_df_rmrows[!d2020_df_rmrows$DefenseTeam=="",]
+d2020_df_rmrows <- d2020_df_rmrows[!d2020_df_rmrows$Formation=="",]
+d2020_df_rmrows <- d2020_df_rmrows[!d2020_df_rmrows$PlayType=="",]
+d2019_df_rmrows <- d2019_df_rmrows[!d2019_df_rmrows$OffenseTeam=="",]
+d2019_df_rmrows <- d2019_df_rmrows[!d2019_df_rmrows$DefenseTeam=="",]
+d2019_df_rmrows <- d2019_df_rmrows[!d2019_df_rmrows$Formation=="",]
+d2019_df_rmrows <- d2019_df_rmrows[!d2019_df_rmrows$PlayType=="",]
+#removed all blanks in 4 columns that had them in each dataset.
+
+d2021_df_rmrows <- subset(d2021_df_rmrows, Down != "0")
+d2021_df_rmrows <- subset(d2021_df_rmrows, Down != "1")
+d2021_df_rmrows <- subset(d2021_df_rmrows, Down != "2")
+d2021_df_rmrows <- subset(d2021_df_rmrows, Down != "3")
+d2020_df_rmrows <- subset(d2020_df_rmrows, Down != "0")
+d2020_df_rmrows <- subset(d2020_df_rmrows, Down != "1")
+d2020_df_rmrows <- subset(d2020_df_rmrows, Down != "2")
+d2020_df_rmrows <- subset(d2020_df_rmrows, Down != "3")
+d2019_df_rmrows <- subset(d2019_df_rmrows, Down != "0")
+d2019_df_rmrows <- subset(d2019_df_rmrows, Down != "1")
+d2019_df_rmrows <- subset(d2019_df_rmrows, Down != "2")
+d2019_df_rmrows <- subset(d2019_df_rmrows, Down != "3")
+#removed all downs that I don't need for data
+
+d2021_df_rmrows %>% group_by(OffenseTeam, Down, SeriesFirstDown) %>%
+  summarize(n())
+d2020_df_rmrows %>% group_by(OffenseTeam, Down, SeriesFirstDown) %>%
+  summarize(n())
+d2019_df_rmrows %>% group_by(OffenseTeam, Down, SeriesFirstDown) %>%
+  summarize(n())
+#summarizing main variables needed for data. 
+
+#The biggest thing I need to find out that I think would help is being able to combine all three of my datasets into one. Because they are different column lengths, I can't use Cbind. This would be helpful since they have the same column names, I could clean the data easier.
+
+#I plan to compare different groups, that aren't obvious, in order to maybe find something that a team is doing that you wouldn't be able to notice otherwise.
+
+#I think the biggest thing I can do is to look at this data not just using the obvious groups that would go together. For example I may find out that against certain teams a team is more likely to pass or run on 4th down or just not go for it at all. This could be helpful for teams during the gameplan part of the week. 
+
+# I don't plan on a lot of slice and dice with my data, there isn't a need to create any new variables, but I do need to get it so each scenario I have the correct information. For example if I want to take out punts and only want to know when a team goes for it, I will need to get that out.  
+
+# I think summarizing certain groups together may be able to show trends that otherwise wouldn't be noticeable. I would plan on comparing each variable to each other variable to see if anything comes up. I have 14 variables total so there are a lot of combinations that could show results. 
+
+# I would be using a combination of scatterplots, line charts, bar plots, and Linear Models. 
+
+#  I won't be incorporating machine learning into my answers, I don't feel like it requires that level to get the answers that teams would be looking for. 
+
+```
+NFLsavant.com. NFLsavant.com: Advanced NFL Statistics. (n.d.). Retrieved July 29, 2022, from http://nflsavant.com/about.php 
