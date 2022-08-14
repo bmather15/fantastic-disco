@@ -1,0 +1,52 @@
+---
+title: "Week 9 Assignment"
+author: "Brandon Mather"
+date: "August 5th 2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```
+library(foreign)
+library(ggplot2)
+library(dplyr)
+surgery_data <- read.arff('ThoraricSurgery.arff')
+names(surgery_data)
+
+#1:
+#1)
+ggplot(surgery_data, aes(PRE5, Risk1Yr)) + geom_point()
+surgery_data$PRE5_new<-as.numeric(surgery_data$PRE5 >= 50)
+surgery_data
+surgery_glm <- glm(Risk1Yr ~ PRE5_new + PRE6 + PRE9 + PRE17 + PRE30, data = surgery_data, family= binomial())
+summary(surgery_glm)
+
+#2)
+#According to the summary the variables that had the greatest effect on the survival rate are
+#PRE9 and PRE17.
+
+#3)
+surgery_data$surgery_prob<-fitted(surgery_glm) 
+surgery_data$surgery_pred<-if_else(surgery_data$surgery_prob > .25, TRUE, FALSE)
+surgery_conf <- table(actual_value = surgery_data$Risk1Yr, Prediction = surgery_data$surgery_pred)
+surgery_conf
+(surgery_conf[[1,1]] + surgery_conf [[2,2]]) / sum(surgery_conf)
+# My model has a 81.7% accuracy. 
+
+#2:
+#1)
+binary_classifier_data <- read.csv('binary-classifier-data.csv')
+binary_model <-glm(label ~ x + y, data = binary_classifier_data, family = binomial())
+binary_model
+
+#2)
+binary_classifier_data$binary_prob <-fitted(binary_model)
+binary_classifier_data$binary_pred<-if_else(binary_classifier_data$binary_prob >= .50, 1, 0)
+binary_conf <-table(Actual_Label = binary_classifier_data$label, Predicted_Label = binary_classifier_data$binary_pred)
+binary_conf
+(binary_conf[[1,1]] + binary_conf[[2,2]]) / sum(binary_conf)
+#The accuracy of the logistic regression classifier is 58.3%
