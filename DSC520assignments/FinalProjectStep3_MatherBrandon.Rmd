@@ -1,0 +1,27 @@
+---
+title: "Week 9 Final Project Step 3"
+author: "Brandon Mather"
+date: "August 10th 2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```
+  A problem that arises often in the National Football League (NFL) are 4th down conversions. This can be one of the most difficult and strategic decisions for a head coach to make. The lingering questions addressed in this research are, "Does the team go for it or not? and How can the team potentially stop it?".
+
+  Collecting and analyzing specific data can assist in making these decisions more clear with higher chances of converting a 4th down conversion. The data that was used in this project included play by play data directly from the NFL collected by NFLsavant that is free to public access. This included data from 2021, 2020, and 2019. This data was then cleaned to only the relevant information needed to solve the problem. This included the quarter, time, offensive team, defensive team, 4th down plays only, if it resulted in a first down, formation, and whether the play was a run or pass. Data would best be displayed through a linear model and scatter plots to visualize how each team acts on 4th downs. This information would be able to give the highest percentage to predict the behavior of each team. Therefore, also allowing for each team to have their own comparisons since there are differences within their play calling. 
+
+  An interesting insight that was revealed in the data was that while most teams had a fairly low percentage of 4th downs converted, the teams that did find success were teams that are known for investing in data analytics for their team (ex. Cleveland Browns). This could prove that data analytics is working in the NFL especially when it comes down to 4th down conversions. 
+
+  The implications for this information for an NFL head coach is to not have to rely on a "gut feeling" anymore. Coaches would be able to access this data and strategize the given information when creating a game plan. However, this is not 100% accurate, but can give coaches higher chances to succeed. If the conversion failed, it would be easy to explain their decision using data to back their statements and call making. This can help in two ways: 1. Assist in potentially winning more games in a year because of good play calling. and 2. Aid in preventing staff from being fired after bad play calling when having specific data to back up their decision making. 
+
+  This data could be improved upon by including more years, having the data being based on specific coaches instead of team based, and using it to help defenses as well as offenses. Having this data could also be used to help with more scenarios in football as well. For example, individuals would be able to try and predict what each team would do for every down and yardage for every quarter. This could not only make play calling more efficient, but would still allow coaches to have the final decision on each call. 
+	
+  In conclusion, data is able to help NFL coaches make better play calls and help turn the tide of a game their way. This will not only help them win, but could also be what saves them from negatively impacting their career. Having more efficient play calling than the other team will always lead to better chances of success. 
+
+```
+NFLsavant.com. NFLsavant.com: Advanced NFL Statistics. (n.d.). Retrieved July 29, 2022, from http://nflsavant.com/about.php 
